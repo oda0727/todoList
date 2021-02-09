@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<title th:text="${title}">TodoList</title>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+</head>
+<body>
+ <header>
+
+	<h1 class="" th:text="${title}"></h1>
+	<h2 class="">My Task</h2>
+
+ </header>
+
+  <section>
+   <div class="main">
+
+    <!--
+		th:each="変数 : ${コレクション}"で記述できる。${コレクション}の値を1つずつ取り出し変数に代入し、
+		以降の処理の中で変数.フィールドの形で値へアクセスできる。javaでいう拡張for文のようなイメージ。
+	-->
+
+    <table class="table">
+		<thead>
+			<tr>
+				<th>タスク名</th>
+       			<th>日付</th>
+       			<th>場所</th>
+       			<th>時間</th>
+
+			</tr>
+		</thead>
+
+		<tbody>
+		 	<tr class="table" th:eath="task:${todoList}" th:object="${task}">
+		 		<td class="data" th:text="*{TODO_TITLE}"></td>
+		 		<td class="data" th:text="*{PLEACE}"></td>
+		 		<td class="data" th:text="*${#dates.format(task.createTime,'hh:mm')}"></td>
+		 		<td class="data" th:text="*${#dates.format(task.completeTime,'yyyy-MM-dd')}"></td>
+		 		<td class="data"><a th:href="@{/task/{id}(id=*{id})}">詳細</a></td>
+			</tr>
+		 </tbody>
+    </table>
+
+   </div>
+
+  </section>
+
+</body>
+</html>
+

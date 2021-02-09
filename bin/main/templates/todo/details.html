@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}"></title>
+</head>
+
+<body>
+
+	<table>
+			<thead>
+				<th:block th:if="*{deleteFlag eq false">
+				 <tr>
+	            	<th scope="col">タスク一覧</th>
+	            	<th scope="col">DB</th>
+	            	<th scope="col">からの</th>
+	            	<th scope="col">からの</th>
+	            </tr>
+	            </th:block>
+	        </thead>
+
+
+
+
+
+
+
+        </table>
+
+
+</body>
+</html>
